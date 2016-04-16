@@ -3,7 +3,7 @@ package uk.co.dannytsang.qifinverter.parser;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-public class QifParser {
+public class QifParser implements IParser {
 	private static final Logger LOG = LogManager.getLogger(QifParser.class);
 
 	/**
@@ -14,6 +14,7 @@ public class QifParser {
 	 *          String to check
 	 * @return String to return either changed or original
 	 */
+	@Override
 	public String parseLine(String line) {
 		StringBuilder sb = new StringBuilder(line);
 		// Transaction

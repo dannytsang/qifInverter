@@ -7,7 +7,7 @@ import org.junit.Test;
 
 public class QifParserTests {
 
-	static QifParser parser;
+	static IParser parser;
 	String line;
 
 	@BeforeClass
