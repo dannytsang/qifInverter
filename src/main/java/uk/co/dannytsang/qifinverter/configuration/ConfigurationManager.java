@@ -15,7 +15,7 @@ public class ConfigurationManager {
 	 * 
 	 * @return Default file name.
 	 */
-	public String defaultOutputFileName() {
+	public static String defaultOutputFileName() {
 		return Configuration.DEFAULT_OUTPUT_FILENAME;
 	}
 
@@ -26,7 +26,7 @@ public class ConfigurationManager {
 	 *          Full path to existing file
 	 * @return New file path.
 	 */
-	public String defaultOutputFileName(String inputFilename) {
+	public static String defaultOutputFileName(String inputFilename) {
 		String newFileName = null;
 
 		if (inputFilename != null && inputFilename.length() > 0) {
