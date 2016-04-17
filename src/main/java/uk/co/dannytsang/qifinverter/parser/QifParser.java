@@ -3,6 +3,12 @@ package uk.co.dannytsang.qifinverter.parser;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+/**
+ * Parsers QIF based text and manipulates them.
+ * 
+ * @author dannytsang<danny@dannytsang.co.uk>
+ *
+ */
 public class QifParser implements IParser {
 	private static final Logger LOG = LogManager.getLogger(QifParser.class);
 

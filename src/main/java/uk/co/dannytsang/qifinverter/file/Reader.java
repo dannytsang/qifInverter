@@ -7,6 +7,12 @@ import java.io.IOException;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+/**
+ * Class to handle reading files.
+ * 
+ * @author dannytsang<danny@dannytsang.co.uk>
+ *
+ */
 public class Reader {
 	private static final Logger LOG = LogManager.getLogger(Reader.class);
 	private BufferedReader br = null;

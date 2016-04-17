@@ -8,6 +8,12 @@ import java.nio.file.Paths;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+/**
+ * Class to handle writing text to a file.
+ * 
+ * @author dannytsang<danny@dannytsang.co.uk>
+ *
+ */
 public class Writer {
 	private static final Logger LOG = LogManager.getLogger(Writer.class);
 	BufferedWriter fileWriter = null;
