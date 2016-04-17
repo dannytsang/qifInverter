@@ -16,8 +16,20 @@ import org.apache.logging.log4j.Logger;
  */
 public class Writer {
 	private static final Logger LOG = LogManager.getLogger(Writer.class);
-	BufferedWriter fileWriter = null;
+	private static BufferedWriter fileWriter = null;
 	private String filePath = null;
+
+	private static BufferedWriter getFileWriter() {
+		return fileWriter;
+	}
+
+	private static void setFileWriter(BufferedWriter fileWriter) {
+		Writer.fileWriter = fileWriter;
+	}
+
+	public String getFilePath() {
+		return filePath;
+	}
 
 	/**
 	 * Open file to be written to.
@@ -28,9 +40,9 @@ public class Writer {
 	 */
 	public void open(String file) throws IOException {
 		LOG.debug("Attempting to open: " + file);
-		
-		fileWriter = Files.newBufferedWriter(Paths.get(file));
-		
+
+		setFileWriter(Files.newBufferedWriter(Paths.get(file)));
+
 		// Set file path
 		filePath = file;
 	}
@@ -46,13 +58,13 @@ public class Writer {
 	public String writeLine(String line) throws IOException {
 		LOG.debug("Writing '" + line + "' to: " + filePath);
 
-		fileWriter.write(line);
+		BufferedWriter fw = getFileWriter();
+		// Serialise writes
+		synchronized (fw) {
+			fw.write(line);
+		}
 
 		return line;
-	}
-
-	public String getFilePath() {
-		return filePath;
 	}
 
 	/**
@@ -60,7 +72,7 @@ public class Writer {
 	 */
 	public void close() {
 		LOG.debug("Attempting to close: " + filePath);
-		
+
 		try {
 			fileWriter.close();
 			filePath = null;
