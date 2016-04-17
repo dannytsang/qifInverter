@@ -27,6 +27,10 @@ public class Reader {
 		return br;
 	}
 
+	/**
+	 * 
+	 * @return Reader access to open file.
+	 */
 	public BufferedReader getReader() {
 		return br;
 	}
