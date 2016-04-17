@@ -14,7 +14,6 @@ public class QifParser implements IParser {
 	 *          String to check
 	 * @return String to return either changed or original
 	 */
-	@Override
 	public String parseLine(String line) {
 		StringBuilder sb = new StringBuilder(line);
 		// Transaction
