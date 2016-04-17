@@ -6,13 +6,14 @@
 	<version>0.1</version>
 	<name>QifInverter</name>
 	<properties>
-		<log4j2.version>2.1</log4j2.version>
+		<log4j2.version>2.5</log4j2.version>
+		<junit.version>4.12</junit.version>
 	</properties>
 	<dependencies>
 		<dependency>
 			<groupId>org.apache.logging.log4j</groupId>
 			<artifactId>log4j-core</artifactId>
-			<version>2.5</version>
+			<version>${log4j2.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>commons-io</groupId>
@@ -22,7 +23,7 @@
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
-			<version>4.12</version>
+			<version>${junit.version}</version>
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
@@ -36,6 +37,7 @@
 					<target>1.8</target>
 				</configuration>
 			</plugin>
+			<!--  Include manifest file in jar without libraries -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-jar-plugin</artifactId>
@@ -49,11 +51,13 @@
 					</archive>
 				</configuration>
 			</plugin>
+			<!-- Create jar with libraries -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-assembly-plugin</artifactId>
 				<executions>
 					<execution>
+						<id>assembly</id>
 						<phase>package</phase>
 						<goals>
 							<goal>single</goal>
@@ -64,6 +68,13 @@
 					<descriptorRefs>
 						<descriptorRef>jar-with-dependencies</descriptorRef>
 					</descriptorRefs>
+					<archive>
+						<manifest>
+							<addClasspath>true</addClasspath>
+							<classpathPrefix>lib/</classpathPrefix>
+							<mainClass>uk.co.dannytsang.qifinverter.Main</mainClass>
+						</manifest>
+					</archive>
 				</configuration>
 			</plugin>
 		</plugins>
