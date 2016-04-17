@@ -37,6 +37,12 @@ public class ConfigurationManagerTest {
 		Assert.assertEquals(Configuration.DEFAULT_OUTPUT_FILENAME,
 				cm.defaultOutputFileName(""));
 	}
+	
+	@Test
+	public void noFilePathMethod() {
+		Assert.assertEquals(Configuration.DEFAULT_OUTPUT_FILENAME,
+				cm.defaultOutputFileName());
+	}
 
 	@After
 	public void tearDown() throws Exception {
