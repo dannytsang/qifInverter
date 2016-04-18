@@ -15,7 +15,7 @@ import org.apache.logging.log4j.Logger;
  */
 public class Reader {
 	private static final Logger LOG = LogManager.getLogger(Reader.class);
-	private BufferedReader br = null;
+	private BufferedReader br;
 
 	/**
 	 * Open a file and return a stream reader.

@@ -27,7 +27,7 @@ public class ConfigurationManager {
 	 * @return New file path.
 	 */
 	public static String defaultOutputFileName(String inputFilename) {
-		String newFileName = null;
+		String newFileName;
 
 		if (inputFilename != null && inputFilename.length() > 0) {
 			// Get file path excluding the file name

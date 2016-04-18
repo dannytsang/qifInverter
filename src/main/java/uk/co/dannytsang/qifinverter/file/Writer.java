@@ -16,8 +16,8 @@ import org.apache.logging.log4j.Logger;
  */
 public class Writer {
 	private static final Logger LOG = LogManager.getLogger(Writer.class);
-	private static BufferedWriter fileWriter = null;
-	private String filePath = null;
+	private static BufferedWriter fileWriter;
+	private String filePath;
 
 	private static BufferedWriter getFileWriter() {
 		return fileWriter;
