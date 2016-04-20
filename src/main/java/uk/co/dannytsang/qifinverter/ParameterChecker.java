@@ -1,8 +1,19 @@
 package uk.co.dannytsang.qifinverter;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import uk.co.dannytsang.qifinverter.data.Setting;
 
+/**
+ * Class that performs checks on parameters and converts them to settings used
+ * in the app.
+ * 
+ * @author dannytsang<danny@dannytsang.co.uk>
+ *
+ */
 public class ParameterChecker {
+	private static final Logger LOG = LogManager.getLogger(Main.class);
 
 	public static Setting check(String[] arguments) {
 		Setting settings = new Setting();
@@ -39,6 +50,7 @@ public class ParameterChecker {
 
 		if (arguments != null && arguments.length > 0) {
 			isValid = true;
+			LOG.debug("Minimum number of arguments passed: " + arguments.toString());
 		}
 
 		return isValid;
@@ -53,8 +65,10 @@ public class ParameterChecker {
 	 */
 	private static String checkValidString(String string) {
 		if (string != null && string.trim().length() > 0) {
+			LOG.debug("Valid string found:" + string);
 			return string;
 		} else {
+			LOG.debug("Invalid string found");
 			return null;
 		}
 	}
