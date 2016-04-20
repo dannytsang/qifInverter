@@ -29,7 +29,8 @@ public class Main {
 		if (settings != null) {
 			LOG.debug("Found QIF file path: " + args[0]);
 			// Run method to read and write QIF file.
-			
+			ConvertQif cq = new ConvertQif();
+			cq.run(settings.getOriginalFile(), settings.getOutputFile());
 		} else {
 			LOG.error("Missing QIF file path.");
 			throw new RuntimeException("Missing QIF file path.");
