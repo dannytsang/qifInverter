@@ -39,7 +39,7 @@ public class Writer {
 	 * @throws IOException
 	 */
 	public void open(String file) throws IOException {
-		LOG.debug("Attempting to open: " + file);
+		LOG.debug("Attempting to create file: " + file);
 
 		setFileWriter(Files.newBufferedWriter(Paths.get(file)));
 
