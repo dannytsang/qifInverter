@@ -6,6 +6,7 @@ package uk.co.dannytsang.qifinverter;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import uk.co.dannytsang.qifinverter.configuration.ConfigurationManager;
 import uk.co.dannytsang.qifinverter.data.Setting;
 
 /**
@@ -30,7 +31,7 @@ public class Main {
 			LOG.debug("Found QIF file path: " + args[0]);
 			// Run method to read and write QIF file.
 			ConvertQif cq = new ConvertQif();
-			cq.run(settings.getOriginalFile(), settings.getOutputFile());
+			cq.run(settings.getOriginalFile(), ConfigurationManager.defaultOutputFileName(settings.getOutputFile()));
 		} else {
 			LOG.error("Missing QIF file path.");
 			throw new RuntimeException("Missing QIF file path.");
