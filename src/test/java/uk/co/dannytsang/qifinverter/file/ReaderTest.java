@@ -4,17 +4,19 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
 
-import org.junit.After;
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 public class ReaderTest {
 
 	Reader fileReader = null;
 	ClassLoader classLoader = getClass().getClassLoader();
 
-	@Before
+	@BeforeEach
 	public void setUpClass() {
 		fileReader = new Reader();
 	}
@@ -28,19 +30,21 @@ public class ReaderTest {
 
 			String line;
 			while ((line = br.readLine()) != null) {
-				Assert.assertTrue(line.length() > 0);
+				assertTrue(line.length() > 0);
 			}
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 	}
 
-	@Test(expected=IOException.class)
-	public void testInvalidFilePath() throws IOException {
+	@Test
+	public void testInvalidFilePath() {
+		assertThrows(IOException.class, () -> {
 			fileReader.open("dummy/path.txt");
+		});
 	}
 
-	@After
+	@AfterEach
 	public void tearDownClass() {
 		fileReader.close();
 	}

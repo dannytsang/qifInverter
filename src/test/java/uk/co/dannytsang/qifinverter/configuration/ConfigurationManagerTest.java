@@ -1,7 +1,8 @@
 package uk.co.dannytsang.qifinverter.configuration;
 
-import org.junit.Assert;
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+import org.junit.jupiter.api.Test;
 
 public class ConfigurationManagerTest {
 
@@ -9,7 +10,7 @@ public class ConfigurationManagerTest {
 	public void unixFilePathTest() {
 		String filePath = "/home/myuser/newoutputfile.txt";
 
-		Assert.assertEquals("/home/myuser/newoutputfile" + Configuration.NEW_FILE_SUFFIX + ".txt",
+		assertEquals("/home/myuser/newoutputfile" + Configuration.NEW_FILE_SUFFIX + ".txt",
 				ConfigurationManager.defaultOutputFileName(filePath));
 	}
 	
@@ -17,20 +18,20 @@ public class ConfigurationManagerTest {
 	public void WindowsFilePathTest() {
 		String filePath = "C:\\user\\myuser\\newoutputfile.txt";
 
-		Assert.assertEquals("C:\\user\\myuser\\newoutputfile" + Configuration.NEW_FILE_SUFFIX + ".txt",
+		assertEquals("C:\\user\\myuser\\newoutputfile" + Configuration.NEW_FILE_SUFFIX + ".txt",
 				ConfigurationManager.defaultOutputFileName(filePath));
 	}
 	
 	@Test
 	public void noFilePath() {
 
-		Assert.assertEquals(Configuration.DEFAULT_OUTPUT_FILENAME,
+		assertEquals(Configuration.DEFAULT_OUTPUT_FILENAME,
 				ConfigurationManager.defaultOutputFileName(""));
 	}
 	
 	@Test
 	public void noFilePathMethod() {
-		Assert.assertEquals(Configuration.DEFAULT_OUTPUT_FILENAME,
+		assertEquals(Configuration.DEFAULT_OUTPUT_FILENAME,
 				ConfigurationManager.defaultOutputFileName());
 	}
 

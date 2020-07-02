@@ -1,15 +1,17 @@
 package uk.co.dannytsang.qifinverter.data;
 
-import org.junit.After;
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
 
 public class SettingTest {
 
 	private Setting setting;
 
-	@Before
+	@BeforeEach
 	public void setUp() {
 		setting = new Setting();
 	}
@@ -19,7 +21,7 @@ public class SettingTest {
 		String originalFile = "original.txt";
 		setting.setOriginalFile(originalFile);
 
-		Assert.assertEquals(originalFile, setting.getOriginalFile());
+		assertEquals(originalFile, setting.getOriginalFile());
 	}
 
 	@Test
@@ -27,7 +29,7 @@ public class SettingTest {
 		String outputFile = "output.txt";
 		setting.setOutputFile(outputFile);
 
-		Assert.assertEquals(outputFile, setting.getOutputFile());
+		assertEquals(outputFile, setting.getOutputFile());
 	}
 
 	@Test
@@ -38,11 +40,11 @@ public class SettingTest {
 		setting.setOutputFile(outputFile);
 		setting.setOriginalFile(originalFile);
 
-		Assert.assertEquals(originalFile, setting.getOriginalFile());
-		Assert.assertEquals(outputFile, setting.getOutputFile());
+		assertEquals(originalFile, setting.getOriginalFile());
+		assertEquals(outputFile, setting.getOutputFile());
 	}
 
-	@After
+	@AfterEach
 	public void tearDown() {
 		setting = null;
 	}

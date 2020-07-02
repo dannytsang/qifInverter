@@ -1,16 +1,17 @@
 package uk.co.dannytsang.qifinverter.parser;
 
-import org.junit.AfterClass;
-import org.junit.Assert;
-import org.junit.BeforeClass;
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
 
 public class QifParserTests {
 
 	static IParser parser;
 	String line;
 
-	@BeforeClass
+	@BeforeAll
 	public static void setUpClass() {
 		parser = new QifParser();
 	}
@@ -18,30 +19,30 @@ public class QifParserTests {
 	@Test
 	public void testEmptyLine() {
 		String line = "";
-		Assert.assertEquals(line, parser.parseLine(line));
+		assertEquals(line, parser.parseLine(line));
 	}
 	
 	@Test
 	public void testInvertPostiveTransactionLine() {
 		String line = "T20.28";
 		String expectedLine = "T-20.28";
-		Assert.assertEquals(expectedLine, parser.parseLine(line));
+		assertEquals(expectedLine, parser.parseLine(line));
 	}
 	
 	@Test
 	public void testInvertNegativeTransactionLine() {
 		String line = "T-20.28";
 		String expectedLine = "T20.28";
-		Assert.assertEquals(expectedLine, parser.parseLine(line));
+		assertEquals(expectedLine, parser.parseLine(line));
 	}
 	
 	@Test
 	public void testNonTransactionLine(){
 		String line = "!Type:Bank";
-		Assert.assertEquals(line, parser.parseLine(line));
+		assertEquals(line, parser.parseLine(line));
 	}
 	
-	@AfterClass
+	@AfterAll
 	public static void tearDownClass() {
 		parser = null;
 	}

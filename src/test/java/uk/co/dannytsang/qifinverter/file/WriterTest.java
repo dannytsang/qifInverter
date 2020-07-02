@@ -2,21 +2,22 @@ package uk.co.dannytsang.qifinverter.file;
 
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.Path;
 
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Rule;
-import org.junit.Test;
-import org.junit.rules.TemporaryFolder;
+import org.junit.jupiter.api.io.TempDir;
+
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 public class WriterTest {
 
 	Writer fileWriter = null;
 
-	@Rule
-	public TemporaryFolder temporaryFolder = new TemporaryFolder();
+	@TempDir
+	public Path temporaryFolder;
 
-	@Before
+	@BeforeEach
 	public void setUpClass() {
 		fileWriter = new Writer();
 
@@ -24,14 +25,14 @@ public class WriterTest {
 
 	@Test
 	public void testWriteToFile() throws IOException {
-		File output = temporaryFolder.newFolder("reports").toPath().resolve("output.txt").toFile();
+		File output = temporaryFolder.resolve("output.txt").toFile();
 
 		System.out.println(output.getAbsolutePath());
 		fileWriter.open(output.getAbsolutePath());
 		fileWriter.writeLine("test");
 	}
 
-	@After
+	@AfterEach
 	public void tearDownClass() {
 		fileWriter.close();
 	}

@@ -1,9 +1,10 @@
 package uk.co.dannytsang.qifinverter;
 
-import org.junit.After;
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+
+import org.junit.jupiter.api.Test;
 
 import uk.co.dannytsang.qifinverter.data.Setting;
 
@@ -13,7 +14,7 @@ public class ParameterCheckerTest {
 	public void testUnderMinimumParameters() {
 		String[] parameters = new String[0];
 
-		Assert.assertNull(ParameterChecker.check(parameters));
+		assertNull(ParameterChecker.check(parameters));
 	}
 
 	@Test
@@ -22,8 +23,8 @@ public class ParameterCheckerTest {
 		
 		Setting settings = ParameterChecker.check(parameters);
 		
-		Assert.assertNotNull(settings);
-		Assert.assertEquals(parameters[0], settings.getOriginalFile());
+		assertNotNull(settings);
+		assertEquals(parameters[0], settings.getOriginalFile());
 	}
 	
 	@Test
@@ -32,8 +33,8 @@ public class ParameterCheckerTest {
 		
 		Setting settings = ParameterChecker.check(parameters);
 		
-		Assert.assertNotNull(settings);
-		Assert.assertEquals(parameters[0], settings.getOriginalFile());
-		Assert.assertEquals(parameters[1], settings.getOutputFile());
+		assertNotNull(settings);
+		assertEquals(parameters[0], settings.getOriginalFile());
+		assertEquals(parameters[1], settings.getOutputFile());
 	}
 }
