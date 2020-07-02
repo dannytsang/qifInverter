@@ -62,6 +62,7 @@ public class Writer {
 		// Serialise writes
 		synchronized (fw) {
 			fw.write(line);
+			fw.newLine();
 		}
 
 		return line;
