@@ -6,7 +6,7 @@
 	<version>0.2</version>
 	<name>QifInverter</name>
 	<properties>
-		<log4j2.version>2.15.0</log4j2.version>
+		<log4j2.version>2.16.0</log4j2.version>
 		<junit.version>5.8.2</junit.version>
 		<commonsio.version>2.11.0</commonsio.version>
 	</properties>
