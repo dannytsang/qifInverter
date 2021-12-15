@@ -4,10 +4,10 @@ Changes the balance of QIF files so that positive transaction becomes negative a
 This is particularly useful where financial data reports a positive balance (credit) on loans, credit cards, etc when they are in fact a debit transaction.
 
 ## Install
-Requires Java runtime environment 1.8. See https://www.java.com/en/download/
+Requires Java runtime environment 14 or higher. See https://jdk.java.net/17/
 
 ## Usage
-Open the commandline and run **java -jar "QifInverter-0.2.jar" [filename]** replacing [filename] with the name of the file.
+Open the commandline and run **java -jar "qif.jar" [filename]** replacing [filename] with the name of the file.
 
 For example:
 `java -jar "QifInverter-0.2.jar" myfile.qif`
