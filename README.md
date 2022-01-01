@@ -10,4 +10,4 @@ Requires Java runtime environment 14 or higher. See https://jdk.java.net/17/
 Open the commandline and run **java -jar "qif.jar" [filename]** replacing [filename] with the name of the file.
 
 For example:
-`java -jar "QifInverter-0.2.jar" myfile.qif`
+`java -jar "QifInverter-0.4.jar" myfile.qif`
